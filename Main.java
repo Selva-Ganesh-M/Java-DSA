@@ -5,17 +5,27 @@ import java.util.Scanner;
 public class Main
 {
 
-  static void tryGraphBfs(){
+  static Graph createGraph(){
     Scanner scan = new Scanner(System.in);
 		int nVertices = scan.nextInt();
 		int nEdges = scan.nextInt();
-		Graph g = new Graph(nVertices, nEdges);
+		return new Graph(nVertices, nEdges);
+  }
+  
+  static void tryGraphBfs(){
+    Graph g = createGraph();
     g.bfs(1);
+  }
+
+  static void tryGraph_Dfs_recusive(){
+    Graph g = createGraph();
+    g.dfs_recursive(1);
   }
   
   // actual
   static void actual(){
     // tryGraphBfs();
+    tryGraph_Dfs_recusive();
   }
 
   // play ground

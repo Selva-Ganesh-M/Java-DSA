@@ -7,7 +7,7 @@ import java.util.LinkedList;
 
 
 public class Graph{
-  
+
   private int nVertices;
   private int nEdges;
   private ArrayList<ArrayList<Integer>> adjList;
@@ -79,6 +79,20 @@ public class Graph{
   }
 
   // dfs region
-  
+
+  private void _dfs_recursive(int value, int[] visited){
+    visited[value] = 1;
+    System.out.println(value);
+    for (int relative: this.adjList.get(value)){
+      if (visited[relative]==0) this._dfs_recursive(relative, visited);
+    }
+  }
+  public void dfs_recursive( int value ){
+    int[] visited = new int[this.nVertices+1];
+    for (int i=1; i<this.nVertices+1; i++){
+      if (visited[i]==0)
+    this._dfs_recursive(i, visited);
+    }
+  }
   
 }
